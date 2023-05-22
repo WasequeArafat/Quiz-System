@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Blog</title>
+  </head>
+  <body class="px-24 my-32">
+    <h1 class="text-5xl text-red-500 mb-3">
+      What is the different between map ,filter, find, foreach ?
+    </h1>
+    <button
+      class="bg-violet-500 hover:bg-violet-600 active:bg-violet-700 focus:outline-none focus:ring focus:ring-violet-300 border rounded-full px-2 py-1"
+      onclick="ShowAns()"
+    >
+      Show Ans
+    </button>
+    <div id="container1"></div>
+    <!--  qus 02 -->
+    <h1 class="text-4xl mt-6 text-red-500 mb-3">
+      What is the different betweenlocal storage session storage and cookies ?
+    </h1>
+    <button
+      class="bg-yellow-500 hover:bg-sky-600 active:bg-sky-700 focus:outline-none focus:ring focus:ring-violet-300 border rounded-full px-2 py-1"
+      onclick="ShowAns1()"
+    >
+      Show Ans
+    </button>
+
+    <div id="container2"></div>
+
+    <!-- ! qus 3  -->
+    <h1 class="text-4xl mt-6 text-red-500 mb-3">What is event loop ?</h1>
+    <button
+      class="bg-red-500 hover:bg-green-600 active:bg-sky-700 focus:outline-none focus:ring focus:ring-violet-300 border rounded-full px-2 py-1"
+      onclick="ShowAns2()"
+    >
+      Show Ans
+    </button>
+
+    <div id="container3"></div>
+
+    <!-- script -->
+    <script>
+      const ShowAns = () => {
+        const display1 = document.getElementById("container1");
+        const p = document.createElement("p");
+        p.innerHTML = `
+             <h1
+                class="mb-5 mt-10">
+      .forEach: .forEach(), is used to execute the same code on every element in
+      an array but does not change the array and it returns undefined. Example:
+      In the example below we would use .forEach() to iterate over an array of
+      food and log that we would want to eat each of them. Running this on your
+      console; forEach result .map(): .map() executes the same code on every
+      element in an array and returns a new array with the updated elements.
+      Example: In the example below we would use .map to iterate over the
+      elements of the cost array and divide each element by 10, then assign our
+      new array containing the new cost to the variable newCost.
+      console.log(newCost); Running this on your console; map result .filter():
+      .filter() checks every element in an array to see if it meets a certain
+      criteria and returns a new array with the elements that return truthy for
+      the criteria. Example: In the example below we would use .filter to return
+      values that are less than 200.
+                </h1>
+            `;
+        display1.appendChild(p);
+      };
+
+      //    ans 2
+      const ShowAns1 = () => {
+        const display1 = document.getElementById("container2");
+        const p = document.createElement("p");
+        p.innerHTML = `
+             <h1
+                class="mb-5 mt-10">
+                There are several reasons why many of the websites and apps we come across store some data locally in the browser. The major reason associated with browser storage is performance. The data stored locally in the user's browser is instantaneously available, and on the other hand, the remotely stored data is sent from the server to the user. Since the server response takes some time after a request is made for the data, we cannot always wait for it, so sometimes. It is beneficial to store the data in the browser for quicker access.
+
+This implies that if the website relies on any data for the information to be accessed frequently. This information could have many distinct uses such as:
+
+Persisting data from a previous browsing session like your username, storing the contents of a shopping cart from the previous session, items in a ToDo list, remembering if a user was previously logged in, etc.
+Personalization of the site settings/preferences that affect how your page renders
+Settings like the user’s choice of color scheme, font size, whether some UI elements are visible or not.
+Saving data and assets you want to keep handy if the network connection goes offline or for the site to load quicker.
+Data for tracking or analysis that needs to be updated frequently.
+The use of varied cloud computing and storage facilities during a single specification is multi-cloud. Click to explore about, Multi vs Hybrid vs Hybrid Multi-Cloud vs. Private Cloud
+What is Web Storage?
+Web storage such as were introduced with HTML5. This made storing and retrieving data in browsers much easier, and one of the major improvements made with these in client-side storage was the storage size, which is much better than cookies.
+
+Web storage could be accessed using Javascript, and none of this data could be read by the server unless manually passed along with the request.
+
+There are two objects for data storage on the client provided by HTML web storage:
+
+Local storage object - Stores data with no expiration date
+Session storage object - Stores data for one session (data is lost when the browser tab is closed)
+Local Storage
+It is a web storage method that helps us store data on the client’s computer in the form of key/value pairs in a web browser. The data is stored in local storage for a lifetime unless the user manually deletes it from the browser. It does not expire even when the user closes the window or tab. Instead, the data remains in the browser until and unless the browser's memory is cleared.
+
+It's data in the browser can only be accessed via JavaScript and HTML5. However, the user also could clear the browser data/cache to erase all local storage data. It has four methods that we can use to set, retrieve, remove and clear:
+
+We can use the setItem() method to set the data in local storage. This method takes two parameters, i.e., key and value. With this method, we can store value with a key. localStorage.setItem(key, value);
+To retrieve the data stored in it, we can use the getItem() method. This method takes only one parameter, i.e., the key whose value we need to access. localStorage.getItem(key);
+We can remove the data with the help of the removeItem() method, which is stored in memory about the key. localStorage.removeItem(key);
+The clear() method is used to clear all the data stored in it.
+The local store has pros and cons to using local storage based on our use case.
+
+Pros
+The data stored in it has no expiration date
+The storage limit is about 10MB
+Its data is never transferred to the server
+Cons
+Its data is plain text; hence it is not secure by design
+The data type is limited to string; hence it needs t
+                </h1>
+            `;
+        display1.appendChild(p);
+      };
+
+      //
+      const ShowAns2 = () => {
+        const display1 = document.getElementById("container3");
+        const p = document.createElement("p");
+        p.innerHTML = `
+             <h1
+                class="mb-5 mt-10">
+                Order of operations:
+
+When calling bar, a first frame is created containing references to bar's arguments and local variables.
+When bar calls foo, a second frame is created and pushed on top of the first one, containing references to foo's arguments and local variables.
+When foo returns, the top frame element is popped out of the stack (leaving only bar's call frame).
+When bar returns, the stack is empty.
+Note that the arguments and local variables may continue to exist, as they are stored outside the stack — so they can be accessed by any nested functions long after their outer function has returned.
+
+Heap
+Objects are allocated in a heap which is just a name to denote a large (mostly unstructured) region of memory.
+
+Queue
+A JavaScript runtime uses a message queue, which is a list of messages to be processed. Each message has an associated function that gets called to handle the message.
+
+At some point during the event loop, the runtime starts handling the messages on the queue, starting with the oldest one. To do so, the message is removed from the queue and its corresponding function is called with the message as an input parameter. As always, calling a function creates a new stack frame for that function's use.
+
+The processing of functions continues until the stack is once again empty. Then, the event loop will process the next message in the queue (if there is one).
+
+Event loop
+The event loop got its name because of how it's usually implemented, which usually resembles:
+
+while (queue.waitForMessage()) {
+  queue.processNextMessage();
+}
+Copy to Clipboard
+queue.waitForMessage() waits synchronously for a message to arrive (if one is not already available and waiting to be handled).
+
+"Run-to-completion"
+Each message is processed completely before any other message is processed.
+
+This offers some nice properties when reasoning about your program, including the fact that whenever a function runs, it cannot be preempted and will run entirely before any other code runs (and can modify data the function manipulates). This differs from C, for instance, where if a function runs in a thread, it may be stopped at any point by the runtime system to run some other code in another thread.
+
+A downside of this model is that if a message takes too long to complete, the web application is unable to process user interactions like click or scroll. The browser mitigates this with the "a script is taking too long to run" dialog. A good practice to follow is to make message processing short and if possible cut down one message into several messages.
+
+Adding messages
+In web browsers, messages are added anytime an event occurs and there is an event listener attached to it. If there is no listener, the event is lost. So a click on an element with a click event handler will add a message — likewise with any other event.
+
+The first two arguments to the function setTimeout are a message to add to the queue and a time value (optional; defaults to 0). The time value represents the (minimum) delay after which the message will be pushed into the queue. If there is no other message in the queue, and the stack is empty, the message is processed right after the delay. However, if there are messages, the setTimeout message will have to wait for other messages to be processed. For this reason, the second argument indicates a minimum time — not a guaranteed time.
+                </h1>
+            `;
+        display1.appendChild(p);
+      };
+    </script>
+  </body>
+</html>
